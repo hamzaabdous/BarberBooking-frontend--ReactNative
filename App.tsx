@@ -16,21 +16,25 @@ import {
   DebugInstructions,
   Header,
   LearnMoreLinks,
-  ReloadInstructions,
+  ReloadInstructions, 
 } from 'react-native/Libraries/NewAppScreen';
-
+// import "./nativewind-output";
+import Login from './src/screens/login/login'
 import _layout from "./src/screens/layout/layout"
 
-function App(): React.JSX.Element {
+function App(): React.JSX.Element { 
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,    
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <_layout/>
+      {/* <_layout/> */}
+      <ScrollView style={styles.scrollView}>
+      <Login/>
+       </ScrollView>
     </SafeAreaView>
   );
 }
@@ -39,6 +43,10 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+  },
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
   },
   sectionTitle: {
     fontSize: 24,

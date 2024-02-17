@@ -65,7 +65,7 @@ function layout(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text> </Text>
+          <Text>hi world </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
