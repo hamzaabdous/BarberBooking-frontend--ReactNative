@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  LogBox,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -19,23 +20,30 @@ import {
   ReloadInstructions, 
 } from 'react-native/Libraries/NewAppScreen';
 // import "./nativewind-output";
-import Login from './src/screens/login/login'
+import Login from './src/screens/login/login' 
 import _layout from "./src/screens/layout/layout"
+import { NativeBaseProvider, Box, Button } from "native-base";
 
 function App(): React.JSX.Element { 
   const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
+  useEffect(() => {
+    LogBox.ignoreLogs(['In React 18, SSRProvider is not necessary and is a noop. You can remove it from your app.']);
+  }, []); 
+  const backgroundStyle = { 
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,    
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      {/* <_layout/> */}
-      <ScrollView style={styles.scrollView}>
-      <Login/>
-       </ScrollView>
-    </SafeAreaView>
+    // <SafeAreaView style={backgroundStyle}>
+    //   {/* <_layout/> */}
+    //   <ScrollView style={styles.scrollView}>
+    //   <Login/>
+    //    </ScrollView>
+    // </SafeAreaView>
+    <NativeBaseProvider>
+    <Box>Hello world wz</Box>
+    <Button onPress={() => console.log("hello world")}>Click Me</Button>
+  </NativeBaseProvider>
   );
 }
 
