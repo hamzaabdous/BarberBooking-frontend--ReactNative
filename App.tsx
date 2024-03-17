@@ -22,7 +22,12 @@ import {
 // import "./nativewind-output";
 import Login from './src/screens/login/login' 
 import _layout from "./src/screens/layout/layout"
-import { NativeBaseProvider, Box, Button } from "native-base";
+// import { NativeBaseProvider, Box, Button } from "native-base";
+import { TamaguiProvider } from '@tamagui/core'
+import { Button } from 'tamagui'
+
+// import '@tamagui/core/reset.css'
+
 
 function App(): React.JSX.Element { 
   const isDarkMode = useColorScheme() === 'dark';
@@ -39,11 +44,15 @@ function App(): React.JSX.Element {
     //   <ScrollView style={styles.scrollView}>
     //   <Login/>
     //    </ScrollView>
+    <TamaguiProvider>
+    {/* <View width={200} height={200} backgroundColor="red" /> */}
+    <Button>Hello world</Button>
+  </TamaguiProvider>
     // </SafeAreaView>
-    <NativeBaseProvider>
-    <Box>Hello world wz</Box>
-    <Button onPress={() => console.log("hello world")}>Click Me</Button>
-  </NativeBaseProvider>
+  //   <NativeBaseProvider>
+  //   <Box>Hello world wz</Box>
+  //   <Button onPress={() => console.log("hello world")}>Click Me</Button>
+  // </NativeBaseProvider>
   );
 }
 
